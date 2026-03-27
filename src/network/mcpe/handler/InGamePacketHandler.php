@@ -72,6 +72,7 @@ use pocketmine\network\mcpe\protocol\MobEquipmentPacket;
 use pocketmine\network\mcpe\protocol\ModalFormResponsePacket;
 use pocketmine\network\mcpe\protocol\MovePlayerPacket;
 use pocketmine\network\mcpe\protocol\NetworkStackLatencyPacket;
+use pocketmine\network\mcpe\protocol\PartyChangedPacket;
 use pocketmine\network\mcpe\protocol\PlayerActionPacket;
 use pocketmine\network\mcpe\protocol\PlayerAuthInputPacket;
 use pocketmine\network\mcpe\protocol\PlayerHotbarPacket;
@@ -1003,6 +1004,10 @@ class InGamePacketHandler extends PacketHandler{
 
 	public function handleEmote(EmotePacket $packet) : bool{
 		$this->player->emote($packet->getEmoteId(), $packet->getEmoteLengthTicks());
+		return true;
+	}
+
+	public function handlePartyChanged(PartyChangedPacket $packet) : bool{
 		return true;
 	}
 }

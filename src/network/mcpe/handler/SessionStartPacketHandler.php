@@ -29,7 +29,6 @@ use pocketmine\network\mcpe\protocol\NetworkSettingsPacket;
 use pocketmine\network\mcpe\protocol\PlayStatusPacket;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\network\mcpe\protocol\RequestNetworkSettingsPacket;
-use pocketmine\network\mcpe\protocol\types\CompressionAlgorithm;
 use pocketmine\Server;
 
 final class SessionStartPacketHandler extends PacketHandler{
