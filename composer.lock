@@ -286,12 +286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Benedikt05/BedrockProtocol.git",
-                "reference": "b7c7ff7e012959cc3224370766841380cdd55e21"
+                "reference": "dcd4a8faa8a6862e1d3b8eb786a9f870edabf49a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/b7c7ff7e012959cc3224370766841380cdd55e21",
-                "reference": "b7c7ff7e012959cc3224370766841380cdd55e21",
+                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/dcd4a8faa8a6862e1d3b8eb786a9f870edabf49a",
+                "reference": "dcd4a8faa8a6862e1d3b8eb786a9f870edabf49a",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +332,7 @@
             "support": {
                 "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.10"
             },
-            "time": "2026-03-27T20:44:49+00:00"
+            "time": "2026-04-16T19:09:13+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
