@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockData.git",
-                "reference": "588acca8a59ef403ceb64b57a18075426256bd68"
+                "reference": "1585b23e0f6556e884830d8f4752c995b7c8b1d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/588acca8a59ef403ceb64b57a18075426256bd68",
-                "reference": "588acca8a59ef403ceb64b57a18075426256bd68",
+                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/1585b23e0f6556e884830d8f4752c995b7c8b1d3",
+                "reference": "1585b23e0f6556e884830d8f4752c995b7c8b1d3",
                 "shasum": ""
             },
             "type": "library",
@@ -251,7 +251,7 @@
                 "issues": "https://github.com/pmmp/BedrockData/issues",
                 "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.26.20"
             },
-            "time": "2026-05-06T13:13:49+00:00"
+            "time": "2026-05-09T14:59:56+00:00"
         },
         {
             "name": "pocketmine/bedrock-item-upgrade-schema",
@@ -285,12 +285,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Benedikt05/BedrockProtocol.git",
-                "reference": "69fdb3a52ee541c6f53d82091a4e3817b142c753"
+                "reference": "b0b7c48a30d69720613f2e6a9729e7cf37daa9cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/69fdb3a52ee541c6f53d82091a4e3817b142c753",
-                "reference": "69fdb3a52ee541c6f53d82091a4e3817b142c753",
+                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/b0b7c48a30d69720613f2e6a9729e7cf37daa9cd",
+                "reference": "b0b7c48a30d69720613f2e6a9729e7cf37daa9cd",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +331,7 @@
             "support": {
                 "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.20"
             },
-            "time": "2026-05-09T00:22:13+00:00"
+            "time": "2026-05-25T18:16:47+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -1239,16 +1239,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315"
+                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6a21eb99c6973357967f6ce3708cd55a6bec6315",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
+                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
                 "shasum": ""
             },
             "require": {
@@ -1300,7 +1300,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.0"
             },
             "funding": [
                 {
@@ -1320,7 +1320,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T17:25:58+00:00"
+            "time": "2026-05-25T14:08:27+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -2449,6 +2449,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2023-02-03T06:58:43+00:00"
         },
         {
@@ -2504,6 +2505,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2023-02-03T06:59:15+00:00"
         },
         {
