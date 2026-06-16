@@ -34,9 +34,9 @@
       "adhocore/json-comment": "~1.2.0",
       "fgrosse/phpasn1": "~2.5.0",
       "pocketmine/bedrock-block-upgrade-schema": "5.2.0+bedrock-1.21.110",
-      "pocketmine/bedrock-data": "dev-bedrock-1.26.20",
+      "pocketmine/bedrock-data": "dev-bedrock-1.26.30",
       "pocketmine/bedrock-item-upgrade-schema": "1.16.0+bedrock-1.21.110",
-      "pocketmine/bedrock-protocol": "26.20.x-dev",
+      "pocketmine/bedrock-protocol": "26.30.x-dev",
       "pocketmine/binaryutils": "^0.2.1",
       "pocketmine/callback-validator": "^1.0.2",
       "pocketmine/classloader": "^0.2.0",
@@ -59,7 +59,7 @@
       "phpstan/phpstan": "1.10.47",
       "phpstan/phpstan-phpunit": "^1.1.0",
       "phpstan/phpstan-strict-rules": "^1.2.0",
-      "phpunit/phpunit": "~10.3.0 || ~10.2.0 || ~10.1.0"
+      "phpunit/phpunit": "^10.5"
    },
    "autoload": {
       "psr-4": {

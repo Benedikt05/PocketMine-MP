@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "350104d4a37fe80adb06f906fcd16258",
+    "content-hash": "b9335bba9210668433622ffbef146475",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -229,16 +229,16 @@
         },
         {
             "name": "pocketmine/bedrock-data",
-            "version": "dev-bedrock-1.26.20",
+            "version": "dev-bedrock-1.26.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockData.git",
-                "reference": "1585b23e0f6556e884830d8f4752c995b7c8b1d3"
+                "reference": "7e91146842837b2267a8e4d8bf8b8dab5e482970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/1585b23e0f6556e884830d8f4752c995b7c8b1d3",
-                "reference": "1585b23e0f6556e884830d8f4752c995b7c8b1d3",
+                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/7e91146842837b2267a8e4d8bf8b8dab5e482970",
+                "reference": "7e91146842837b2267a8e4d8bf8b8dab5e482970",
                 "shasum": ""
             },
             "type": "library",
@@ -249,9 +249,9 @@
             "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
             "support": {
                 "issues": "https://github.com/pmmp/BedrockData/issues",
-                "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.26.20"
+                "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.26.30"
             },
-            "time": "2026-05-09T14:59:56+00:00"
+            "time": "2026-06-16T10:44:11+00:00"
         },
         {
             "name": "pocketmine/bedrock-item-upgrade-schema",
@@ -281,16 +281,16 @@
         },
         {
             "name": "pocketmine/bedrock-protocol",
-            "version": "26.20.x-dev",
+            "version": "26.30.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Benedikt05/BedrockProtocol.git",
-                "reference": "b0b7c48a30d69720613f2e6a9729e7cf37daa9cd"
+                "reference": "28776f6384a6433448a09fc848c69e13f562ae47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/b0b7c48a30d69720613f2e6a9729e7cf37daa9cd",
-                "reference": "b0b7c48a30d69720613f2e6a9729e7cf37daa9cd",
+                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/28776f6384a6433448a09fc848c69e13f562ae47",
+                "reference": "28776f6384a6433448a09fc848c69e13f562ae47",
                 "shasum": ""
             },
             "require": {
@@ -329,9 +329,9 @@
             ],
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
-                "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.20"
+                "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.30"
             },
-            "time": "2026-05-25T18:16:47+00:00"
+            "time": "2026-06-16T23:20:57+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -1239,16 +1239,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.38.0",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd"
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
-                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
                 "shasum": ""
             },
             "require": {
@@ -1300,7 +1300,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
             },
             "funding": [
                 {
@@ -1320,7 +1320,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-25T14:08:27+00:00"
+            "time": "2026-05-27T06:59:30+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -2239,16 +2239,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.3.5",
+            "version": "10.5.63",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "747c3b2038f1139e3dcd9886a3f5a948648b7503"
+                "reference": "33198268dad71e926626b618f3ec3966661e4d90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/747c3b2038f1139e3dcd9886a3f5a948648b7503",
-                "reference": "747c3b2038f1139e3dcd9886a3f5a948648b7503",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/33198268dad71e926626b618f3ec3966661e4d90",
+                "reference": "33198268dad71e926626b618f3ec3966661e4d90",
                 "shasum": ""
             },
             "require": {
@@ -2258,26 +2258,26 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "ext-xmlwriter": "*",
-                "myclabs/deep-copy": "^1.10.1",
-                "phar-io/manifest": "^2.0.3",
-                "phar-io/version": "^3.0.2",
+                "myclabs/deep-copy": "^1.13.4",
+                "phar-io/manifest": "^2.0.4",
+                "phar-io/version": "^3.2.1",
                 "php": ">=8.1",
-                "phpunit/php-code-coverage": "^10.1.5",
-                "phpunit/php-file-iterator": "^4.0",
-                "phpunit/php-invoker": "^4.0",
-                "phpunit/php-text-template": "^3.0",
-                "phpunit/php-timer": "^6.0",
-                "sebastian/cli-parser": "^2.0",
-                "sebastian/code-unit": "^2.0",
-                "sebastian/comparator": "^5.0",
-                "sebastian/diff": "^5.0",
-                "sebastian/environment": "^6.0",
-                "sebastian/exporter": "^5.1",
-                "sebastian/global-state": "^6.0.1",
-                "sebastian/object-enumerator": "^5.0",
-                "sebastian/recursion-context": "^5.0",
-                "sebastian/type": "^4.0",
-                "sebastian/version": "^4.0"
+                "phpunit/php-code-coverage": "^10.1.16",
+                "phpunit/php-file-iterator": "^4.1.0",
+                "phpunit/php-invoker": "^4.0.0",
+                "phpunit/php-text-template": "^3.0.1",
+                "phpunit/php-timer": "^6.0.0",
+                "sebastian/cli-parser": "^2.0.1",
+                "sebastian/code-unit": "^2.0.0",
+                "sebastian/comparator": "^5.0.5",
+                "sebastian/diff": "^5.1.1",
+                "sebastian/environment": "^6.1.0",
+                "sebastian/exporter": "^5.1.4",
+                "sebastian/global-state": "^6.0.2",
+                "sebastian/object-enumerator": "^5.0.0",
+                "sebastian/recursion-context": "^5.0.1",
+                "sebastian/type": "^4.0.0",
+                "sebastian/version": "^4.0.1"
             },
             "suggest": {
                 "ext-soap": "To be able to generate mocks based on WSDL files"
@@ -2288,7 +2288,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "10.3-dev"
+                    "dev-main": "10.5-dev"
                 }
             },
             "autoload": {
@@ -2320,7 +2320,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.3.5"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.63"
             },
             "funding": [
                 {
@@ -2332,11 +2332,19 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/phpunit/phpunit",
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-19T05:42:37+00:00"
+            "time": "2026-01-27T05:48:37+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2449,7 +2457,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2023-02-03T06:58:43+00:00"
         },
         {
@@ -2505,7 +2512,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2023-02-03T06:59:15+00:00"
         },
         {
@@ -3384,5 +3390,5 @@
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
