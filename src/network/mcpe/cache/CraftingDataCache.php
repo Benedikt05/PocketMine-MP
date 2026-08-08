@@ -82,7 +82,7 @@ final class CraftingDataCache{
 		$converter = TypeConverter::getInstance();
 		$recipesWithTypeIds = [];
 
-		$noUnlockingRequirement = new RecipeUnlockingRequirement(null);
+		$noUnlockingRequirement = new RecipeUnlockingRequirement(RecipeUnlockingRequirement::CONTEXT_ALWAYS_UNLOCKED, null);
 
 		$nextRecipeId = 0;
 
@@ -96,7 +96,7 @@ final class CraftingDataCache{
 					ShapelessRecipeType::STONECUTTER()->id() => CraftingRecipeBlockName::STONECUTTER,
 					default => throw new AssumptionFailedError("Unreachable"),
 				};
-				$recipesWithTypeIds[] = new ProtocolShapelessRecipe(
+				$recipesWithTypeIds[CraftingDataPacket::ENTRY_SHAPELESS][] = new ProtocolShapelessRecipe(
 					CraftingDataPacket::ENTRY_SHAPELESS,
 					$binaryId,
 					array_map(function(Item $item) use ($converter) : RecipeIngredient{
@@ -118,7 +118,7 @@ final class CraftingDataCache{
 						$inputs[$row][$column] = $converter->coreItemStackToRecipeIngredient($recipe->getIngredient($column, $row));
 					}
 				}
-				$recipesWithTypeIds[] = new ProtocolShapedRecipe(
+				$recipesWithTypeIds[CraftingDataPacket::ENTRY_SHAPED][] = new ProtocolShapedRecipe(
 					CraftingDataPacket::ENTRY_SHAPED,
 					$binaryId,
 					$inputs,
@@ -146,7 +146,7 @@ final class CraftingDataCache{
 			};
 			foreach($manager->getFurnaceRecipeManager($furnaceType)->getAll() as $recipe){
 				$currentId = $nextRecipeId++;
-				$recipesWithTypeIds[] = new ProtocolShapelessRecipe(
+				$recipesWithTypeIds[CraftingDataPacket::ENTRY_SHAPELESS][] = new ProtocolShapelessRecipe(
 					CraftingDataPacket::ENTRY_SHAPELESS,
 					Binary::writeInt($currentId),
 					array_map(function(Item $item) use ($converter) : RecipeIngredient{

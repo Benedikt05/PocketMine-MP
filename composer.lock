@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9335bba9210668433622ffbef146475",
+    "content-hash": "d907adb8dcd5d1376377781ad3620665",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -64,6 +64,31 @@
                 }
             ],
             "time": "2022-10-02T11:22:07+00:00"
+        },
+        {
+            "name": "axolotl-pm/bedrock-data",
+            "version": "dev-bedrock-1.26.40",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/axolotl-pm/BedrockData.git",
+                "reference": "2503f8631a3e3780cfe2bf506a38826308590dd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockData/zipball/2503f8631a3e3780cfe2bf506a38826308590dd5",
+                "reference": "2503f8631a3e3780cfe2bf506a38826308590dd5",
+                "shasum": ""
+            },
+            "type": "library",
+            "license": [
+                "CC0-1.0"
+            ],
+            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
+            "support": {
+                "source": "https://github.com/axolotl-pm/BedrockData/tree/bedrock-1.26.40",
+                "issues": "https://github.com/axolotl-pm/BedrockData/issues"
+            },
+            "time": "2026-07-25T01:09:40+00:00"
         },
         {
             "name": "brick/math",
@@ -228,32 +253,6 @@
             "time": "2025-10-02T13:22:10+00:00"
         },
         {
-            "name": "pocketmine/bedrock-data",
-            "version": "dev-bedrock-1.26.30",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pmmp/BedrockData.git",
-                "reference": "7e91146842837b2267a8e4d8bf8b8dab5e482970"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/7e91146842837b2267a8e4d8bf8b8dab5e482970",
-                "reference": "7e91146842837b2267a8e4d8bf8b8dab5e482970",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "CC0-1.0"
-            ],
-            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
-            "support": {
-                "issues": "https://github.com/pmmp/BedrockData/issues",
-                "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.26.30"
-            },
-            "time": "2026-06-16T10:44:11+00:00"
-        },
-        {
             "name": "pocketmine/bedrock-item-upgrade-schema",
             "version": "1.16.0",
             "source": {
@@ -281,16 +280,16 @@
         },
         {
             "name": "pocketmine/bedrock-protocol",
-            "version": "26.30.x-dev",
+            "version": "26.40.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Benedikt05/BedrockProtocol.git",
-                "reference": "1a0de8eb89fd882da91ef0d865045a2bf2a4c28f"
+                "reference": "a7ac62bb4e23badc027c603e45faba449a5782bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/1a0de8eb89fd882da91ef0d865045a2bf2a4c28f",
-                "reference": "1a0de8eb89fd882da91ef0d865045a2bf2a4c28f",
+                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/a7ac62bb4e23badc027c603e45faba449a5782bf",
+                "reference": "a7ac62bb4e23badc027c603e45faba449a5782bf",
                 "shasum": ""
             },
             "require": {
@@ -329,9 +328,9 @@
             ],
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
-                "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.30"
+                "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.40"
             },
-            "time": "2026-06-17T15:47:52+00:00"
+            "time": "2026-08-08T00:06:45+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -1579,20 +1578,19 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.7.0",
+            "version": "v5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82"
+                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dca41cd15c2ac9d055ad70dbfd011130757d1f82",
-                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
+                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
                 "shasum": ""
             },
             "require": {
-                "ext-ctype": "*",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
                 "php": ">=7.4"
@@ -1631,9 +1629,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.8.0"
             },
-            "time": "2025-12-06T11:56:16+00:00"
+            "time": "2026-07-04T14:30:18+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -2239,24 +2237,24 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.63",
+            "version": "10.5.64",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "33198268dad71e926626b618f3ec3966661e4d90"
+                "reference": "0e8c1d19cea35ad97d4887f363d07c78e30fbf06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/33198268dad71e926626b618f3ec3966661e4d90",
-                "reference": "33198268dad71e926626b618f3ec3966661e4d90",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0e8c1d19cea35ad97d4887f363d07c78e30fbf06",
+                "reference": "0e8c1d19cea35ad97d4887f363d07c78e30fbf06",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
+                "ext-filter": "*",
                 "ext-json": "*",
                 "ext-libxml": "*",
                 "ext-mbstring": "*",
-                "ext-xml": "*",
                 "ext-xmlwriter": "*",
                 "myclabs/deep-copy": "^1.13.4",
                 "phar-io/manifest": "^2.0.4",
@@ -2320,31 +2318,15 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.63"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.64"
             },
             "funding": [
                 {
-                    "url": "https://phpunit.de/sponsors.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/phpunit",
-                    "type": "tidelift"
+                    "url": "https://phpunit.de/sponsoring.html",
+                    "type": "other"
                 }
             ],
-            "time": "2026-01-27T05:48:37+00:00"
+            "time": "2026-07-06T14:50:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -3353,7 +3335,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "pocketmine/bedrock-data": 20,
+        "axolotl-pm/bedrock-data": 20,
         "pocketmine/bedrock-protocol": 20
     },
     "prefer-stable": false,

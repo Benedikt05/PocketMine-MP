@@ -39,6 +39,7 @@ use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraData;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
 use pocketmine\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
+use pocketmine\network\mcpe\protocol\types\recipe\NameItemDescriptor;
 use pocketmine\network\mcpe\protocol\types\recipe\RecipeIngredient;
 use pocketmine\network\mcpe\protocol\types\recipe\StringIdMetaItemDescriptor;
 use pocketmine\player\GameMode;
@@ -109,12 +110,13 @@ class TypeConverter{
 			return new RecipeIngredient(null, 0);
 		}
 		if($itemStack->hasAnyDamageValue()){
-			[$id, ] = ItemTranslator::getInstance()->toNetworkId($itemStack->getId(), 0);
 			$meta = 0x7fff;
 		}else{
-			[$id, $meta] = ItemTranslator::getInstance()->toNetworkId($itemStack->getId(), $itemStack->getMeta());
+			$meta = ItemTranslator::getInstance()->toNetworkId($itemStack->getId(), $itemStack->getMeta())[1];
 		}
-		return new RecipeIngredient(new IntIdMetaItemDescriptor($id, $meta), $itemStack->getCount());
+		$id = GlobalItemTypeDictionary::getInstance()->getDictionary()->fromIntId(ItemTranslator::getInstance()->toNetworkId($itemStack->getId(), $itemStack->getMeta())[0]);
+
+		return new RecipeIngredient(new NameItemDescriptor($id, $meta), $itemStack->getCount());
 	}
 
 	public function recipeIngredientToCoreItemStack(RecipeIngredient $ingredient) : Item{
