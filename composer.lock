@@ -277,6 +277,7 @@
                 "issues": "https://github.com/pmmp/BedrockItemUpgradeSchema/issues",
                 "source": "https://github.com/pmmp/BedrockItemUpgradeSchema/tree/1.16.0"
             },
+            "abandoned": true,
             "time": "2025-10-02T13:22:32+00:00"
         },
         {
@@ -285,12 +286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Benedikt05/BedrockProtocol.git",
-                "reference": "3c48e45a00b829c4fa5f8101da98964857fb7db4"
+                "reference": "8f1a822fb941f076e974b49527b05f50e92be73a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/3c48e45a00b829c4fa5f8101da98964857fb7db4",
-                "reference": "3c48e45a00b829c4fa5f8101da98964857fb7db4",
+                "url": "https://api.github.com/repos/Benedikt05/BedrockProtocol/zipball/8f1a822fb941f076e974b49527b05f50e92be73a",
+                "reference": "8f1a822fb941f076e974b49527b05f50e92be73a",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +332,7 @@
             "support": {
                 "source": "https://github.com/Benedikt05/BedrockProtocol/tree/26.40"
             },
-            "time": "2026-08-08T05:38:59+00:00"
+            "time": "2026-08-09T20:52:09+00:00"
         },
         {
             "name": "pocketmine/binaryutils",

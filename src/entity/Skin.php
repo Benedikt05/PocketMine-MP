@@ -50,7 +50,7 @@ final class Skin{
 		}
 	}
 
-	public function __construct(string $skinId, string $skinData, string $capeData = "", string $geometryName = "", string $geometryData = ""){
+	public function __construct(string $skinId, string $skinData, string $capeData = "", string $geometryName = "", string $geometryData = "{}"){
 		self::checkLength($skinId, "Skin ID", Limits::INT16_MAX);
 		self::checkLength($geometryName, "Geometry name", Limits::INT16_MAX);
 		self::checkLength($geometryData, "Geometry data", Limits::INT32_MAX);

@@ -515,7 +515,7 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 			])),
 			[], //TODO: entity links
 			"", //device ID (we intentionally don't send this - secvuln)
-			DeviceOS::UNKNOWN //we intentionally don't send this (secvuln)
+			DeviceOS::ANDROID //we intentionally don't send this (secvuln)
 		));
 
 		//TODO: Hack for MCPE 1.2.13: DATA_NAMETAG is useless in AddPlayerPacket, so it has to be sent separately
