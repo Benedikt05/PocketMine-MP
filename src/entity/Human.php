@@ -487,7 +487,7 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 	protected function sendSpawnPacket(Player $player) : void{
 		$networkSession = $player->getNetworkSession();
 		if(!($this instanceof Player)){
-			$networkSession->sendDataPacket(PlayerListPacket::add([PlayerListEntry::createAdditionEntry($this->uuid, $this->id, $this->getName(), SkinAdapterSingleton::get()->toSkinData($this->skin))]));
+			$networkSession->sendDataPacket(PlayerListPacket::add([PlayerListEntry::createAdditionEntry($this->uuid, $this->id, $this->getName(), SkinAdapterSingleton::get()->toSkinData($this->skin), "", "", DeviceOS::ANDROID)]));
 		}
 
 		$networkSession->sendDataPacket(AddPlayerPacket::create(
@@ -515,7 +515,7 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 			])),
 			[], //TODO: entity links
 			"", //device ID (we intentionally don't send this - secvuln)
-			DeviceOS::UNKNOWN //we intentionally don't send this (secvuln)
+			DeviceOS::ANDROID
 		));
 
 		//TODO: Hack for MCPE 1.2.13: DATA_NAMETAG is useless in AddPlayerPacket, so it has to be sent separately
