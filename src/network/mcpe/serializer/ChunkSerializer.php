@@ -116,7 +116,7 @@ final class ChunkSerializer{
 				}
 			}else{
 				foreach($palette as $p){
-					$stream->put(Binary::writeUnsignedVarInt($blockMapper->toRuntimeId($p) << 1));
+					$stream->put(Binary::writeVarInt($blockMapper->toRuntimeId($p)));
 				}
 			}
 		}

@@ -23,7 +23,9 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\handler;
 
+use pocketmine\nbt\NBT;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\ListTag;
 use pocketmine\network\mcpe\cache\CraftingDataCache;
 use pocketmine\network\mcpe\cache\StaticPacketCache;
 use pocketmine\network\mcpe\convert\GlobalItemTypeDictionary;
@@ -31,6 +33,7 @@ use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\InventoryManager;
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\ItemRegistryPacket;
+use pocketmine\network\mcpe\protocol\JigsawStructureDataPacket;
 use pocketmine\network\mcpe\protocol\PlayerAuthInputPacket;
 use pocketmine\network\mcpe\protocol\RequestChunkRadiusPacket;
 use pocketmine\network\mcpe\protocol\StartGamePacket;
@@ -42,7 +45,6 @@ use pocketmine\network\mcpe\protocol\types\Experiments;
 use pocketmine\network\mcpe\protocol\types\LevelSettings;
 use pocketmine\network\mcpe\protocol\types\NetworkPermissions;
 use pocketmine\network\mcpe\protocol\types\PlayerMovementSettings;
-use pocketmine\network\mcpe\protocol\types\ServerAuthMovementMode;
 use pocketmine\network\mcpe\protocol\types\SpawnSettings;
 use pocketmine\player\Player;
 use pocketmine\Server;
@@ -65,6 +67,15 @@ class PreSpawnPacketHandler extends PacketHandler{
 	public function setUp() : void{
 		Timings::$playerNetworkSendPreSpawnGameData->startTiming();
 		try{
+
+			$this->session->getLogger()->debug("Preparing JigsawStructureDataPacket");
+			$this->session->sendDataPacket(JigsawStructureDataPacket::create(new CacheableNbt(CompoundTag::create()
+				->setTag("processors", new ListTag([], NBT::TAG_Compound))
+				->setTag("template_pools", new ListTag([], NBT::TAG_Compound))
+				->setTag("jigsaws", new ListTag([], NBT::TAG_Compound))
+				->setTag("structure_sets", new ListTag([], NBT::TAG_Compound))
+			)), true);
+
 			$location = $this->player->getLocation();
 			$world = $location->getWorld();
 
@@ -107,7 +118,7 @@ class PreSpawnPacketHandler extends PacketHandler{
 				sprintf("%s %s", VersionInfo::NAME, VersionInfo::VERSION()->getFullVersion(true)),
 				Uuid::fromString(Uuid::NIL),
 				false,
-				false,
+				true,
 				false,
 				new NetworkPermissions(disableClientSounds: true),
 				[],
