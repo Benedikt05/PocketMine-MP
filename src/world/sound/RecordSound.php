@@ -26,11 +26,28 @@ namespace pocketmine\world\sound;
 use pocketmine\block\utils\RecordType;
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
+use pocketmine\network\mcpe\protocol\PlaySoundPacket;
+use pocketmine\network\mcpe\protocol\RecordStartedPacket;
+use pocketmine\network\mcpe\protocol\types\BlockPosition;
 
 class RecordSound implements Sound{
-	public function __construct(private RecordType $recordType){}
+	private static int $soundHandleCount = 1;
+
+	private int $serverSoundHandle;
+
+	public function __construct(private RecordType $recordType){
+		$this->serverSoundHandle = self::$soundHandleCount++;
+	}
+
+	public function getServerSoundHandle() : int{
+		return $this->serverSoundHandle;
+	}
 
 	public function encode(Vector3 $pos) : array{
-		return [LevelSoundEventPacket::nonActorSound($this->recordType->getSoundId(), $pos, false)];
+		$soundName = LevelSoundEventPacket::getIdToStringMap()[$this->recordType->getSoundId()] ?? "";
+		return [
+			PlaySoundPacket::create($soundName, $pos->x + 0.5, $pos->y + 0.5, $pos->z + 0.5, 1, 1, 0, true, $this->serverSoundHandle, null),
+			RecordStartedPacket::create(BlockPosition::fromVector3($pos), $this->serverSoundHandle)
+		];
 	}
 }

@@ -32,6 +32,7 @@ class Jukebox extends Spawnable{
 	private const TAG_RECORD = "RecordItem"; //Item CompoundTag
 
 	private ?Record $record = null;
+	private ?int $soundHandle = null;
 
 	public function getRecord() : ?Record{
 		return $this->record;
@@ -39,6 +40,14 @@ class Jukebox extends Spawnable{
 
 	public function setRecord(?Record $record) : void{
 		$this->record = $record;
+	}
+
+	public function getSoundHandle() : ?int{
+		return $this->soundHandle;
+	}
+
+	public function setSoundHandle(?int $soundHandle) : void{
+		$this->soundHandle = $soundHandle;
 	}
 
 	public function readSaveData(CompoundTag $nbt) : void{
@@ -64,6 +73,9 @@ class Jukebox extends Spawnable{
 	}
 
 	protected function onBlockDestroyedHook() : void{
-		$this->position->getWorld()->addSound($this->position, new RecordStopSound());
+		if($this->soundHandle !== null){
+			$this->position->getWorld()->addSound($this->position, new RecordStopSound($this->soundHandle));
+			$this->soundHandle = null;
+		}
 	}
 }
