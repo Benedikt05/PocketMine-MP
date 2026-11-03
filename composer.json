@@ -4,6 +4,16 @@
    "type": "project",
    "homepage": "https://pmmp.io",
    "license": "LGPL-3.0",
+   "repositories": [
+      {
+         "type": "vcs",
+         "url": "https://github.com/benedikt05/bedrockprotocol"
+      },
+      {
+         "type": "vcs",
+         "url": "https://github.com/axolotl-pm/Nethernet"
+      }
+   ],
    "require": {
       "php": "^8.1",
       "php-64bit": "*",
@@ -12,6 +22,7 @@
       "ext-ctype": "*",
       "ext-curl": "*",
       "ext-date": "*",
+      "ext-encoding": "~1.0.0",
       "ext-gmp": "*",
       "ext-hash": "*",
       "ext-igbinary": "^3.0.1",
@@ -32,11 +43,12 @@
       "ext-zlib": ">=1.2.11",
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
-      "axolotl-pm/bedrock-block-upgrade-schema": "dev-bedrock-1.26.50",
-      "axolotl-pm/bedrock-data": "dev-bedrock-1.26.50",
-      "axolotl-pm/bedrock-item-upgrade-schema": "dev-bedrock-1.26.50",
+      "axolotl-pm/bedrock-block-upgrade-schema": "dev-master",
+      "axolotl-pm/bedrock-data": "dev-master",
+      "axolotl-pm/bedrock-item-upgrade-schema": "dev-master",
+      "axolotl-pm/nethernet": "dev-master#eff5049aca3a79f7679e36e46e6bb426a2a03f5d",
       "fgrosse/phpasn1": "~2.5.0",
-      "pocketmine/bedrock-protocol": "26.50.x-dev",
+      "pocketmine/bedrock-protocol": "26.60.x-dev",
       "pocketmine/binaryutils": "^0.2.1",
       "pocketmine/callback-validator": "^1.0.2",
       "pocketmine/classloader": "^0.2.0",
@@ -93,11 +105,5 @@
       "update-translation-apis": [
          "@php build/generate-known-translation-apis.php"
       ]
-   },
-   "repositories": [
-      {
-         "type": "vcs",
-         "url": "https://github.com/benedikt05/bedrockprotocol"
-      }
-   ]
+   }
 }

@@ -12,6 +12,10 @@ crashdumps/*
 *.phar
 server.properties
 /pocketmine.yml
+# NetherNet identity key and TLS material - private keys, never commit
+/nethernet.key
+/nethernet-cert.pem
+/nethernet-key.pem
 /plugin_list.yml
 memory_dumps/*
 resource_packs/

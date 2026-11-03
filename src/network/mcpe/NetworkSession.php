@@ -116,6 +116,8 @@ use function base64_encode;
 use function bin2hex;
 use function count;
 use function get_class;
+use function hash;
+use function hash_equals;
 use function in_array;
 use function json_encode;
 use function ord;
@@ -181,7 +183,8 @@ class NetworkSession{
 		private EntityEventBroadcaster $entityEventBroadcaster,
 		private Compressor $compressor,
 		private string $ip,
-		private int $port
+		private int $port,
+		private ?string $netherNetClientPublicKeyDigest = null
 	){
 		$this->logger = new \PrefixedLogger($this->server->getLogger(), $this->getLogPrefix());
 
@@ -680,6 +683,8 @@ class NetworkSession{
 				$error = "Expected XUID but none found";
 			}elseif($clientPubKey === null){
 				$error = "Missing client public key"; //failsafe
+			}elseif($this->netherNetClientPublicKeyDigest !== null && !hash_equals($this->netherNetClientPublicKeyDigest, hash("sha256", $clientPubKey, true))){
+				$error = "NetherNet identity key does not match the login public key";
 			}
 		}
 
@@ -750,7 +755,7 @@ class NetworkSession{
 			}
 		}
 
-		if(EncryptionContext::$ENABLED){
+		if(EncryptionContext::$ENABLED && $this->netherNetClientPublicKeyDigest === null){
 			$this->server->getAsyncPool()->submitTask(new PrepareEncryptionTask($clientPubKey, function(string $encryptionKey, string $handshakeJwt) : void{
 				if(!$this->connected){
 					return;

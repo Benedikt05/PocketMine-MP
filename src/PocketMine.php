@@ -109,7 +109,8 @@ namespace pocketmine {
 			"spl" => "SPL",
 			"yaml" => "YAML",
 			"zip" => "Zip",
-			"zlib" => "Zlib"
+			"zlib" => "Zlib",
+			"webrtc" => "WebRTC"
 		];
 
 		foreach($extensions as $ext => $name){
@@ -144,6 +145,13 @@ namespace pocketmine {
 			preg_match("/^" . preg_quote($wantedVersionLock, "/") . "\.\d+(?:-dev)?$/", $chunkutils2_version) === 0 //lock in at ^0.2, optionally at a patch release
 		)){
 			$messages[] = "chunkutils2 ^$wantedVersionMin is required, while you have $chunkutils2_version.";
+		}
+
+		if(($webrtc_version = phpversion("webrtc")) !== false && (
+			version_compare($webrtc_version, "0.3.0") < 0 ||
+			version_compare($webrtc_version, "0.4.0") >= 0
+		)){
+			$messages[] = "ext-webrtc ^0.3.0 is required, while you have $webrtc_version.";
 		}
 
 		if(extension_loaded("pocketmine")){

@@ -56,6 +56,7 @@ use pocketmine\network\mcpe\compression\Compressor;
 use pocketmine\network\mcpe\compression\ZlibCompressor;
 use pocketmine\network\mcpe\encryption\EncryptionContext;
 use pocketmine\network\mcpe\EntityEventBroadcaster;
+use pocketmine\network\mcpe\nethernet\NetherNetInterface;
 use pocketmine\network\mcpe\NetworkBroadcastUtils;
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\PacketBroadcaster;
@@ -135,6 +136,7 @@ use function file_put_contents;
 use function filemtime;
 use function fopen;
 use function get_class;
+use function in_array;
 use function ini_set;
 use function is_array;
 use function is_dir;
@@ -1223,18 +1225,60 @@ class Server{
 
 	private function startupPrepareNetworkInterfaces() : bool{
 		$useQuery = $this->configGroup->getConfigBool("enable-query", true);
+		$transport = $this->configGroup->getPropertyString("transport.name", "nethernet");
+		if(!in_array($transport, ["raknet", "nethernet", "both"], true)){
+			$this->logger->emergency("Invalid transport.name value '$transport'; expected raknet, nethernet or both");
+			return false;
+		}
+		$useRakNet = $transport === "raknet" || $transport === "both";
+		$useNetherNet = $transport === "nethernet" || $transport === "both";
 
 		$packetBroadcaster = new StandardPacketBroadcaster($this);
 		$entityEventBroadcaster = new StandardEntityEventBroadcaster($packetBroadcaster);
 
-		if(
-			!$this->startupPrepareConnectableNetworkInterfaces($this->getIp(), $this->getPort(), false, $useQuery, $packetBroadcaster, $entityEventBroadcaster) ||
-			(
-				$this->configGroup->getConfigBool("enable-ipv6", true) &&
-				!$this->startupPrepareConnectableNetworkInterfaces($this->getIpV6(), $this->getPortV6(), true, $useQuery, $packetBroadcaster, $entityEventBroadcaster)
-			)
-		){
-			return false;
+		if($useRakNet){
+			if(
+				!$this->startupPrepareConnectableNetworkInterfaces($this->getIp(), $this->getPort(), false, $useQuery, $packetBroadcaster, $entityEventBroadcaster) ||
+				(
+					$this->configGroup->getConfigBool("enable-ipv6", true) &&
+					!$this->startupPrepareConnectableNetworkInterfaces($this->getIpV6(), $this->getPortV6(), true, $useQuery, $packetBroadcaster, $entityEventBroadcaster)
+				)
+			){
+				return false;
+			}
+		}elseif($useQuery){
+			if(!$this->startupPrepareDedicatedQueryNetworkInterface($this->getIp(), $this->getPort(), false)){
+				return false;
+			}
+			if($this->configGroup->getConfigBool("enable-ipv6", true) && !$this->startupPrepareDedicatedQueryNetworkInterface($this->getIpV6(), $this->getPortV6(), true)){
+				return false;
+			}
+		}
+
+		if($useNetherNet){
+			try{
+				$registered = $this->network->registerInterface(new NetherNetInterface(
+					$this,
+					$this->getIp(),
+					$this->getPort(),
+					$this->configGroup->getPropertyString("transport.nethernet.key-file", "nethernet.key"),
+					$packetBroadcaster,
+					$entityEventBroadcaster
+				));
+			}catch(NetworkInterfaceStartException $e){
+				$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_networkStartFailed(
+					$this->getIp(),
+					(string) $this->getPort(),
+					$e->getMessage()
+				)));
+				return false;
+			}
+			if($registered){
+				$this->logger->info($this->getLanguage()->translate(KnownTranslationFactory::pocketmine_server_networkStart(
+					$this->getIp(),
+					(string) $this->getPort()
+				)) . " (NetherNet)");
+			}
 		}
 
 		if($useQuery){
@@ -1249,6 +1293,28 @@ class Server{
 			$this->network->registerInterface(new UPnPNetworkInterface($this->logger, Internet::getInternalIP(), $this->getPort()));
 		}
 
+		return true;
+	}
+
+	private function startupPrepareDedicatedQueryNetworkInterface(string $ip, int $port, bool $ipV6) : bool{
+		$prettyIp = $ipV6 ? "[$ip]" : $ip;
+		try{
+			$this->network->registerInterface(new DedicatedQueryNetworkInterface(
+				$ip,
+				$port,
+				$ipV6,
+				new \PrefixedLogger($this->logger, "Dedicated Query Interface")
+			));
+		}catch(NetworkInterfaceStartException $e){
+			$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_networkStartFailed(
+				$ip,
+				(string) $port,
+				$e->getMessage()
+			)));
+			return false;
+		}
+
+		$this->logger->info($this->getLanguage()->translate(KnownTranslationFactory::pocketmine_server_query_running($prettyIp, (string) $port)));
 		return true;
 	}
 

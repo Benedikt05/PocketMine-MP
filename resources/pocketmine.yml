@@ -97,7 +97,26 @@ network:
   max-mtu-size: 1492
   #Enable encryption of Minecraft network traffic. This has an impact on performance, but prevents hackers from stealing sessions and pretending to be other players.
   #DO NOT DISABLE THIS unless you understand the risks involved.
-  enable-encryption: true
+  enable-encryption: false
+
+transport:
+  #Which network transport(s) to accept players over: raknet, nethernet, or both.
+  name: nethernet
+  nethernet:
+    #Persistent NetherNet server identity key, relative to the data directory.
+    key-file: nethernet.key
+    #Set to true if the signaling endpoint is behind a reverse proxy.
+    reverse-proxy:
+      enabled: false
+      #Only trust forwarding headers from these addresses or CIDR ranges.
+      #An empty list trusts all connections; only use this if the signaling port is firewalled.
+      trusted-ips: []
+    #Optional ICE servers used to establish WebRTC connections.
+    ice-servers: []
+    #Optional [start, end] UDP port range for WebRTC media connections.
+    port-range: []
+    #Multiplex ICE traffic over one UDP socket. TURN servers are incompatible with this.
+    ice-udp-mux: false
 
 debug:
   #If > 1, it will show debug messages in the console
