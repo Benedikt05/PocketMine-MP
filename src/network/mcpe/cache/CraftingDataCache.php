@@ -58,6 +58,12 @@ final class CraftingDataCache{
 	 */
 	private array $caches = [];
 
+	/**
+	 * The client doesn't like recipes with net ID 0 and complains about them in the content log. This doesn't affect
+	 * functionality, but the offset avoids the complaints.
+	 */
+	public const RECIPE_ID_OFFSET = 1;
+
 	public function getCache(CraftingManager $manager) : CraftingDataPacket{
 		$id = spl_object_id($manager);
 		if(!isset($this->caches[$id])){
@@ -84,7 +90,7 @@ final class CraftingDataCache{
 
 		$noUnlockingRequirement = new RecipeUnlockingRequirement(RecipeUnlockingRequirement::CONTEXT_ALWAYS_UNLOCKED, null);
 
-		$nextRecipeId = 0;
+		$nextRecipeId = self::RECIPE_ID_OFFSET;
 
 		foreach($manager->getCraftingRecipeIndex() as $recipe){
 			$currentId = $nextRecipeId++;
