@@ -24,9 +24,11 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\cache;
 
 use pocketmine\data\bedrock\BedrockDataFiles;
+use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AvailableActorIdentifiersPacket;
 use pocketmine\network\mcpe\protocol\BiomeDefinitionListPacket;
 use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
+use pocketmine\network\mcpe\protocol\types\BlockPaletteEntry;
 use pocketmine\network\mcpe\protocol\types\CacheableNbt;
 use pocketmine\utils\Filesystem;
 use pocketmine\utils\SingletonTrait;
@@ -96,16 +98,43 @@ class StaticPacketCache{
 		return $entries;
 	}
 
+	/** @phpstan-return list<BlockPaletteEntry> */
+	private static function loadDataDrivenBlockPalette(string $filePath) : array{
+		$nbt = self::loadCompoundFromFile($filePath)->getRoot();
+		if(!$nbt instanceof CompoundTag){
+			throw new SavedDataLoadingException("$filePath should contain a CompoundTag, got " . get_debug_type($nbt));
+		}
+		$paletteNBT = $nbt->getListTag("blockPalette");
+		if($paletteNBT === null){
+			throw new SavedDataLoadingException("$filePath should contain a blockPalette ListTag");
+		}
+		$palette = [];
+		foreach($paletteNBT->getValue() as $entryNBT){
+			if(!$entryNBT instanceof CompoundTag){
+				throw new SavedDataLoadingException("$filePath blockPalette should contain CompoundTag entries, got " . get_debug_type($entryNBT));
+			}
+			$name = $entryNBT->getString("name");
+			$states = $entryNBT->getCompoundTag("states");
+			if($states === null){
+				throw new SavedDataLoadingException("$filePath blockPalette entry $name should contain a states CompoundTag");
+			}
+			$palette[] = new BlockPaletteEntry($name, new CacheableNbt($states));
+		}
+		return $palette;
+	}
+
 	private static function make() : self{
 		return new self(
 			BiomeDefinitionListPacket::fromDefinitions(self::loadBiomeDefinitionModel(BedrockDataFiles::BIOME_DEFINITIONS_JSON)),
-			AvailableActorIdentifiersPacket::create(self::loadCompoundFromFile(BedrockDataFiles::ENTITY_IDENTIFIERS_NBT))
+			AvailableActorIdentifiersPacket::create(self::loadCompoundFromFile(BedrockDataFiles::ENTITY_IDENTIFIERS_NBT)),
+			self::loadDataDrivenBlockPalette(BedrockDataFiles::DATA_DRIVEN_BLOCKS_NBT)
 		);
 	}
 
 	public function __construct(
 		private BiomeDefinitionListPacket $biomeDefs,
-		private AvailableActorIdentifiersPacket $availableActorIdentifiers
+		private AvailableActorIdentifiersPacket $availableActorIdentifiers,
+		private array $blockPaletteEntries
 	){}
 
 	public function getBiomeDefs() : BiomeDefinitionListPacket{
@@ -114,5 +143,13 @@ class StaticPacketCache{
 
 	public function getAvailableActorIdentifiers() : AvailableActorIdentifiersPacket{
 		return $this->availableActorIdentifiers;
+	}
+
+	/**
+	 * @return BlockPaletteEntry[]
+	 * @phpstan-return list<BlockPaletteEntry>
+	 */
+	public function getBlockPaletteEntries() : array{
+		return $this->blockPaletteEntries;
 	}
 }

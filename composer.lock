@@ -173,7 +173,7 @@
                 "pocketmine/log": "^0.4.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "2.1.46",
+                "phpstan/phpstan": "2.3.5",
                 "phpstan/phpstan-phpunit": "^2.0.0",
                 "phpstan/phpstan-strict-rules": "^2.0.0",
                 "phpunit/phpunit": "^10.5.24"
@@ -203,10 +203,10 @@
             ],
             "description": "A NetherNet (WebRTC) transport implementation written in PHP",
             "support": {
-                "source": "https://github.com/axolotl-pm/NetherNet/tree/0.3.2",
+                "source": "https://github.com/axolotl-pm/NetherNet/tree/master",
                 "issues": "https://github.com/axolotl-pm/NetherNet/issues"
             },
-            "time": "2026-11-01T04:33:35+00:00"
+            "time": "2026-11-09T11:54:52+00:00"
         },
         {
             "name": "brick/math",
@@ -2318,16 +2318,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.66",
+            "version": "10.5.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "747c9889613d0b3ffa08b74272e50ed3b8fa6d72"
+                "reference": "1f3e67dd433817bddfc64afab63977cc4b011374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/747c9889613d0b3ffa08b74272e50ed3b8fa6d72",
-                "reference": "747c9889613d0b3ffa08b74272e50ed3b8fa6d72",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1f3e67dd433817bddfc64afab63977cc4b011374",
+                "reference": "1f3e67dd433817bddfc64afab63977cc4b011374",
                 "shasum": ""
             },
             "require": {
@@ -2399,7 +2399,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.66"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.67"
             },
             "funding": [
                 {
@@ -2407,7 +2407,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-10-05T05:46:26+00:00"
+            "time": "2026-11-13T11:07:03+00:00"
         },
         {
             "name": "sebastian/cli-parser",

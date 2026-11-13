@@ -121,7 +121,7 @@ class PreSpawnPacketHandler extends PacketHandler{
 				true,
 				false,
 				new NetworkPermissions(disableClientSounds: true),
-				[],
+				StaticPacketCache::getInstance()->getBlockPaletteEntries(),
 				0
 			));
 
